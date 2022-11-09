@@ -97,7 +97,8 @@ def bot_menu(message):
 
         with open('botdatabase.csv', 'w', encoding='UTF-8') as file1:
             for line in db:
-                if c_id not in line:
+                id_search = line.split()[0]
+                if id_search != c_id:
                     file1.write(line)
 
         bot.send_message(message.chat.id, 'Контакт успешно удален!'.format(
